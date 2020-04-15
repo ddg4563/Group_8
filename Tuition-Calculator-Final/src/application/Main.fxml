@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -18,61 +19,62 @@
       <TextField layoutX="43.0" layoutY="201.0" promptText="Enter Number of Semesters" text="4" />
       <TextField layoutX="43.0" layoutY="274.0" promptText="Enter Payment Amount" text="3000.0" />
       <Button fx:id="button1" layoutX="45.0" layoutY="384.0" mnemonicParsing="false" text="Calculate" />
-      <Label layoutX="43.0" layoutY="113.0" text="Tuition Amount" />
+      <Label layoutX="43.0" layoutY="113.0" text="Tuition Rate" />
       <Label layoutX="43.0" layoutY="187.0" text="Number of Semesters" />
-      <Label layoutX="43.0" layoutY="260.0" text="Payment Amount" />
+      <Label layoutX="43.0" layoutY="260.0" text="Total Amount Paid" />
       <Button fx:id="button2" layoutX="45.0" layoutY="418.0" mnemonicParsing="false" text="Clear" />
-      <BarChart layoutX="200.0" layoutY="172.0" minWidth="-Infinity">
+      <BarChart layoutX="192.0" layoutY="127.0" minWidth="-Infinity">
         <xAxis>
           <CategoryAxis label="Semesters" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis label="\$$$" side="LEFT" />
+          <NumberAxis label="Tuition" side="LEFT" />
         </yAxis>
       </BarChart>
-      <Pane layoutX="724.0" layoutY="91.0" prefHeight="700.0" prefWidth="263.0">
+      <Pane layoutX="724.0" layoutY="6.0" prefHeight="780.0" prefWidth="263.0">
          <children>
-            <Label layoutX="14.0" layoutY="142.0" text="Total Amount Spent on Tuition">
+            <Label layoutX="11.0" layoutY="89.0" text="Total Amount Spent on Tuition">
                <font>
                   <Font name="System Italic" size="15.0" />
                </font>
             </Label>
-            <Text layoutX="14.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
+            <Text layoutX="14.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label layoutX="14.0" layoutY="208.0" text="Amount of Tuition Left">
+            <Label layoutX="14.0" layoutY="147.0" text="Amount of Tuition Left">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Text layoutX="14.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
+            <Text layoutX="14.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
             <Label layoutX="20.0" layoutY="270.0" />
-            <Label layoutX="14.0" layoutY="275.0" text="Inflation Rate">
+            <Label layoutX="10.0" layoutY="200.0" text="Inflation Rate">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Text layoutX="19.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" wrappingWidth="121.94091796875">
+            <Text layoutX="14.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label layoutX="11.0" layoutY="96.0" text="Grade Point Average">
+            <Label layoutX="11.0" layoutY="32.0" text="Grade Point Average">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Text layoutX="20.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+            <Text layoutX="14.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
+            <ListView layoutX="4.0" layoutY="308.0" prefHeight="352.0" prefWidth="215.0" />
          </children>
       </Pane>
       <Label layoutX="42.0" layoutY="327.0" text="Inflation Rate" />
@@ -80,5 +82,7 @@
       <Label layoutX="41.0" layoutY="440.0" />
       <Label layoutX="383.0" layoutY="598.0" text="If you have already taken credits click the check box" />
       <CheckBox layoutX="484.0" layoutY="641.0" mnemonicParsing="false" />
+      <Label layoutX="14.0" layoutY="476.0" text="Click Here to Enter Previous Courses" />
+      <Button layoutX="41.0" layoutY="503.0" mnemonicParsing="false" text="Courses" />
    </children>
 </AnchorPane>

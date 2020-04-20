@@ -65,13 +65,18 @@ public class MainController {
     	int semesters = Integer.parseInt(textField2.getText());
     	double amountPaid = Double.parseDouble(textField3.getText());
     	double rate = Double.parseDouble(textField4.getText()) * 0.01;
-    	double total = tuition;
+    	double total = 0;
     	double interest = 0;
     	
-    	
     	for(int i = 0; i < semesters; i++) {
-    		interest = total * rate;
-    		total += tuition + interest;
+    		if(((i)/2) == 0)
+    		{
+    			//interest = total * rate;
+    			tuition = tuition + (tuition * rate);
+    			System.out.println(tuition);
+    		}
+    		total += tuition;
+    		
     		XYChart.Series<String,Integer> data = new XYChart.Series<String, Integer>();
     		data.getData().add(new XYChart.Data<String, Integer>("Semester " + Integer.toString(i + 1), (int) total));
     		tuitionChart.getData().add(data);
@@ -81,9 +86,9 @@ public class MainController {
     	
     	//data.setName("All Semesters");
     	
-    	textTuition.setText(Double.toString(total));
-    	textRate.setText(Double.toString(rate * 10) + "%");
-    	textLeft.setText(Double.toString(total - amountPaid));
+    	textTuition.setText(String.format("$%.2f",total));
+    	textRate.setText(Double.toString((rate * 100)) + "%");
+    	textLeft.setText(String.format("$%.2f",(total - amountPaid)));
     	
     	
     	

@@ -67,6 +67,11 @@ public class MainController {
     	double rate = Double.parseDouble(textField4.getText()) * 0.01;
     	double total = 0;
     	double interest = 0;
+    	XYChart.Series<String,Integer> data = new XYChart.Series<String, Integer>();
+    	
+    	for(int j = 0; j < tuitionChart.getData().size(); j++) {
+    		tuitionChart.getData().clear();
+    	}
     	
     	for(int i = 0; i < semesters; i++) {
     		if(((i)/2) == 0)
@@ -77,20 +82,41 @@ public class MainController {
     		}
     		total += tuition;
     		
-    		XYChart.Series<String,Integer> data = new XYChart.Series<String, Integer>();
+    		
     		data.getData().add(new XYChart.Data<String, Integer>("Semester " + Integer.toString(i + 1), (int) total));
-    		tuitionChart.getData().add(data);
+    		
     		data.setName("Semester " + (i +1));
     	}
     	
     	
     	//data.setName("All Semesters");
-    	
+    	tuitionChart.layout();
+    	tuitionChart.getData().addAll(data);
+    	tuitionChart.setLegendVisible(false);
     	textTuition.setText(String.format("$%.2f",total));
     	textRate.setText(Double.toString((rate * 100)) + "%");
     	textLeft.setText(String.format("$%.2f",(total - amountPaid)));
     	
     	
+    	
+    	
+    }
+    
+    
+    @FXML
+    public void handleClear(ActionEvent event) {
+    	textField1.clear();
+    	textField2.clear();
+    	textField3.clear();
+    	textField4.clear();
+    	for(int j = 0; j < tuitionChart.getData().size(); j++) {
+    		tuitionChart.getData().clear();
+    	}
+    	
+    	textTuition.setText("$00.00");
+    	textLeft.setText("$00.00");
+    	textRate.setText("0.0%");
+    	textGpa.setText("0.00");
     	
     	
     }

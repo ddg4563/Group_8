@@ -1,20 +1,28 @@
 /**
- * Sample Skeleton for 'Main.fxml' Controller Class
+ * The MainController class provides methods for the Main.fxml
+ * gui objects
  */
 
 package application;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-public class MainController {
+public class MainController implements Initializable {
 	
 	@FXML // fx:id="mainPane"
     private AnchorPane mainPane;
@@ -59,40 +67,39 @@ public class MainController {
     private Button button3; // Value injected by FXMLLoader handles going to course page
     
     
+    // calculate the tuition and load it in
+    // a BarChart
     @FXML
     public void handleCalculate(ActionEvent event) {
     	double tuition = Double.parseDouble(textField1.getText());
     	int semesters = Integer.parseInt(textField2.getText());
     	double amountPaid = Double.parseDouble(textField3.getText());
     	double rate = Double.parseDouble(textField4.getText()) * 0.01;
-    	double total = 0;
-    	double interest = 0;
-    	XYChart.Series<String,Integer> data = new XYChart.Series<String, Integer>();
+    	double total = 0.0;
     	
-    	for(int j = 0; j < tuitionChart.getData().size(); j++) {
-    		tuitionChart.getData().clear();
+    	if(checkBox1.isSelected()) {
+    		
+    		try {
+				semesters = Courses.countSemesters();
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+    		
+    		total = TuitionModel.calculate(tuition, semesters, amountPaid, rate, tuitionChart);
+    		
+    		textGpa.setText(Courses.gpaCalculate());
+    		
+    		
+    	} else {
+    		
+    		total = TuitionModel.calculate(tuition, semesters, amountPaid, rate, tuitionChart);
+    		
     	}
     	
-    	for(int i = 0; i < semesters; i++) {
-    		if(((i)/2) == 0)
-    		{
-    			//interest = total * rate;
-    			tuition = tuition + (tuition * rate);
-    			System.out.println(tuition);
-    		}
-    		total += tuition;
-    		
-    		
-    		data.getData().add(new XYChart.Data<String, Integer>("Semester " + Integer.toString(i + 1), (int) total));
-    		
-    		data.setName("Semester " + (i +1));
-    	}
     	
+    		
     	
-    	//data.setName("All Semesters");
-    	tuitionChart.layout();
-    	tuitionChart.getData().addAll(data);
-    	tuitionChart.setLegendVisible(false);
     	textTuition.setText(String.format("$%.2f",total));
     	textRate.setText(Double.toString((rate * 100)) + "%");
     	textLeft.setText(String.format("$%.2f",(total - amountPaid)));
@@ -103,6 +110,7 @@ public class MainController {
     }
     
     
+    // clear all of the fields
     @FXML
     public void handleClear(ActionEvent event) {
     	textField1.clear();
@@ -120,6 +128,31 @@ public class MainController {
     	
     	
     }
+    
+    
+    // go to the courses page
+    @FXML
+    void handleClickCourses(ActionEvent event) throws IOException {
+    	mainPane = FXMLLoader.load(getClass().getResource("Courses.fxml"));
+        Scene scene = new Scene(mainPane);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+    
+    
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+    	
+    	try {
+			Courses.loadCourses();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+     
     
 
 }

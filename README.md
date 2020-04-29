@@ -1,8 +1,8 @@
 # Tuition Calculator
 
 Memebers:
-Dale Graham
-Vincent Chao
+Dale Graham,
+Vincent Chao,
 Issabela Castro
 
 Description:
@@ -12,7 +12,7 @@ Login Info:
 N/A
 
 Requirements:
-Java 8
-Scenebuilder 2.0
-CSS
+Java 8,
+Scenebuilder 2.0,
+CSS,
 Google

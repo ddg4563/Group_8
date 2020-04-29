@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="coursePane" prefHeight="419.0" prefWidth="520.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CoursesController">
+	<children>
+      <Label layoutX="91.0" layoutY="69.0" prefHeight="17.0" prefWidth="61.0" text="Courses" textAlignment="CENTER" textFill="#0b223d">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font></Label>
+      <TextField fx:id="courseField1" layoutX="54.0" layoutY="85.0" />
+      <TextField fx:id="courseField2" layoutX="54.0" layoutY="113.0" />
+      <TextField fx:id="courseField3" layoutX="54.0" layoutY="142.0" />
+      <TextField fx:id="courseField4" layoutX="54.0" layoutY="171.0" />
+      <Label layoutX="230.0" layoutY="68.0" text="Grades" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ChoiceBox fx:id="gradeBox1" layoutX="215.0" layoutY="85.0" prefHeight="22.0" prefWidth="73.0" />
+      <ChoiceBox fx:id="gradeBox2" layoutX="215.0" layoutY="113.0" prefHeight="22.0" prefWidth="73.0" />
+      <ChoiceBox fx:id="gradeBox3" layoutX="215.0" layoutY="142.0" prefHeight="22.0" prefWidth="73.0" />
+      <ChoiceBox fx:id="gradeBox4" layoutX="215.0" layoutY="171.0" prefHeight="22.0" prefWidth="73.0" />
+      <Label layoutX="358.0" layoutY="69.0" text="Credits/Hours" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="creditField1" layoutX="333.0" layoutY="85.0" />
+      <TextField fx:id="creditField2" layoutX="333.0" layoutY="113.0" />
+      <TextField fx:id="creditField3" layoutX="333.0" layoutY="142.0" />
+      <TextField fx:id="creditField4" layoutX="333.0" layoutY="171.0" />
+      <Button fx:id="saveButton" layoutX="367.0" layoutY="219.0" mnemonicParsing="false" onAction="#saveInfo" prefHeight="22.0" prefWidth="100.0" text="Save">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Label layoutX="399.0" layoutY="349.0" text="Return To Main">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button fx:id="btnMain" layoutX="407.0" layoutY="370.0" mnemonicParsing="false" onAction="#handleClickMain" onMouseClicked="#handleClickMain" prefHeight="35.0" prefWidth="73.0" text="Main">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

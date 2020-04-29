@@ -102,6 +102,11 @@ public class CoursesController implements Initializable {
 		creditField3.clear();
 		creditField4.clear();
 		
+		gradeBox1.getSelectionModel().clearSelection();
+		gradeBox2.getSelectionModel().clearSelection();
+		gradeBox3.getSelectionModel().clearSelection();
+		gradeBox4.getSelectionModel().clearSelection();
+		
     	
     }
     

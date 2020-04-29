@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -12,77 +19,122 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" prefHeight="740.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane fx:id="mainPane" prefHeight="740.0" prefWidth="988.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <TextField fx:id="textField1" layoutX="43.0" layoutY="127.0" promptText="Enter Tution Amount" text="13000.00" />
-      <TextField fx:id="textField2" layoutX="43.0" layoutY="201.0" promptText="Enter Number of Semesters" text="4" />
-      <TextField fx:id="textField3" layoutX="43.0" layoutY="274.0" promptText="Enter Payment Amount" text="3000.0" />
-      <Button fx:id="button1" layoutX="45.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleCalculate" text="Calculate" />
-      <Label layoutX="43.0" layoutY="113.0" text="Tuition Rate" />
-      <Label layoutX="43.0" layoutY="187.0" text="Number of Semesters" />
-      <Label layoutX="43.0" layoutY="260.0" text="Total Amount Paid" />
-      <Button fx:id="button2" layoutX="45.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleClear" text="Clear" />
-      <BarChart fx:id="tuitionChart" barGap="1.0" layoutX="192.0" layoutY="92.0" minWidth="-Infinity" prefHeight="544.0" prefWidth="574.0">
+     <TextField fx:id="textField1" layoutX="30.0" layoutY="85.0" promptText="Enter Tution Amount" />
+      <TextField fx:id="textField2" layoutX="30.0" layoutY="167.0" promptText="Enter Number of Semesters" />
+      <TextField fx:id="textField3" layoutX="30.0" layoutY="244.0" promptText="Enter Payment Amount" />
+      <Button fx:id="button1" layoutX="46.0" layoutY="618.0" mnemonicParsing="false" onAction="#handleCalculate" prefHeight="36.0" prefWidth="114.0" text="Calculate">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Label layoutX="34.0" layoutY="67.0" prefHeight="18.0" prefWidth="137.0" text="Tuition Rate" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="151.0" text="Number of Semesters" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="226.0" text="Total Amount Paid" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button fx:id="button2" layoutX="44.0" layoutY="672.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="36.0" prefWidth="114.0" text="Clear">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <BarChart fx:id="tuitionChart" barGap="1.0" layoutX="221.0" layoutY="54.0" minWidth="-Infinity" prefHeight="661.0" prefWidth="521.0">
         <xAxis>
-          <CategoryAxis animated="false" label="Semesters" prefHeight="70.0" prefWidth="497.0" side="BOTTOM" />
+          <CategoryAxis animated="false" label="Semesters" prefHeight="52.0" prefWidth="500.0" side="BOTTOM">
+               <tickLabelFont>
+                  <Font size="12.0" />
+               </tickLabelFont></CategoryAxis>
         </xAxis>
         <yAxis>
-          <NumberAxis label="Tuition" side="LEFT" />
+          <NumberAxis label="Tuition" side="LEFT">
+               <tickLabelFont>
+                  <Font size="12.0" />
+               </tickLabelFont></NumberAxis>
         </yAxis>
       </BarChart>
       <Pane layoutX="724.0" layoutY="6.0" prefHeight="780.0" prefWidth="263.0">
          <children>
-            <Label layoutX="52.0" layoutY="209.0" text="Total Amount of Tuition">
+            <Label layoutX="27.0" layoutY="221.0" text="Total Amount of Tuition" textFill="#0b223d">
                <font>
-                  <Font size="15.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="textTuition" layoutX="81.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
+            <Text fx:id="textTuition" layoutX="32.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label layoutX="57.0" layoutY="287.0" text="Amount of Tuition Left">
+            <Label layoutX="32.0" layoutY="341.0" text="Amount of Tuition Left" textFill="#0b223d">
                <font>
-                  <Font size="15.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="textLeft" layoutX="81.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
+            <Text fx:id="textLeft" layoutX="32.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00.00" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
             <Label layoutX="20.0" layoutY="270.0" />
-            <Label layoutX="68.0" layoutY="369.0" text="Inflation Rate">
+            <Label layoutX="32.0" layoutY="457.0" prefHeight="21.0" prefWidth="146.0" text="Inflation Rate" textFill="#0b223d">
                <font>
-                  <Font size="15.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="textRate" layoutX="81.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" wrappingWidth="121.94091796875">
+            <Text fx:id="textRate" layoutX="32.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0%" wrappingWidth="121.94091796875">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Label layoutX="68.0" layoutY="136.0" text="Grade Point Average">
+            <Label layoutX="28.0" layoutY="95.0" text="Grade Point Average" textFill="#0b223d">
                <font>
-                  <Font size="14.0" />
+                  <Font size="17.0" />
                </font>
             </Label>
-            <Text fx:id="textGpa" layoutX="81.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
+            <Text fx:id="textGpa" layoutX="28.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
+            <Line endX="100.0" layoutX="132.0" layoutY="434.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="131.0" layoutY="308.0" startX="-100.0" />
+            <Line endX="100.0" layoutX="131.0" layoutY="173.0" startX="-100.0" />
+            <Label layoutX="42.0" layoutY="674.0" prefHeight="36.0" prefWidth="173.0" text="Additional Funding Information" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="button4" layoutX="79.0" layoutY="716.0" mnemonicParsing="false" onAction="#handleClickFunding" prefHeight="36.0" prefWidth="99.0" text="Funding">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <Label layoutX="42.0" layoutY="327.0" text="Inflation Rate" />
-      <TextField fx:id="textField4" layoutX="43.0" layoutY="341.0" promptText="Enter Rate Amount" text="5" />
+      <Label layoutX="33.0" layoutY="304.0" text="Inflation Rate" textFill="#0b223d">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="textField4" layoutX="30.0" layoutY="322.0" promptText="Enter Rate Amount" />
       <Label layoutX="41.0" layoutY="440.0" />
-      <Label layoutX="357.0" layoutY="666.0" text="If you have already taken credits click the check box" />
-      <CheckBox fx:id="checkBox1" layoutX="462.0" layoutY="720.0" mnemonicParsing="false" />
-      <Label layoutX="14.0" layoutY="536.0" prefHeight="36.0" prefWidth="186.0" text="Click Here to Enter Previous Courses Taken" wrapText="true" />
-      <Button fx:id="button3" layoutX="37.0" layoutY="594.0" mnemonicParsing="false" onAction="#handleClickCourses" text="Courses" />
-      <Label layoutX="14.0" layoutY="648.0" prefHeight="58.0" prefWidth="173.0" text="Or Click Here to see Additional Funding Information" wrapText="true" />
-      <Button fx:id="button4" layoutX="41.0" layoutY="704.0" mnemonicParsing="false" text="Funding" />
+      <Label contentDisplay="CENTER" layoutX="26.0" layoutY="404.0" prefHeight="36.0" prefWidth="173.0" text="If you have taken previous courses click the check box" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <CheckBox fx:id="checkBox1" layoutX="92.0" layoutY="446.0" mnemonicParsing="false" />
+      <Label layoutX="32.0" layoutY="483.0" prefHeight="36.0" prefWidth="137.0" text="Previous Courses Taken" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button fx:id="button3" layoutX="51.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleClickCourses" prefHeight="36.0" prefWidth="99.0" text="Courses">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Line endX="100.0" layoutX="117.0" layoutY="384.0" startX="-100.0" />
    </children>
 </AnchorPane>

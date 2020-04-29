@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="coursePane" prefHeight="419.0" prefWidth="520.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CoursesController">
+<AnchorPane fx:id="coursePane" prefHeight="419.0" prefWidth="520.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CoursesController">
 	<children>
-      <Label layoutX="91.0" layoutY="69.0" prefHeight="17.0" prefWidth="61.0" text="Courses" textAlignment="CENTER" textFill="#0b223d">
+       <Label layoutX="91.0" layoutY="69.0" prefHeight="17.0" prefWidth="61.0" text="Courses" textAlignment="CENTER" textFill="#0b223d">
          <font>
             <Font name="Arial" size="15.0" />
          </font></Label>

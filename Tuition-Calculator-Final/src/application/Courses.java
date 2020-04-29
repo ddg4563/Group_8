@@ -62,6 +62,7 @@ public class Courses {
 	// the HashMap
 	public static String gpaCalculate() {
 		 double gpa = 0;
+		 double count = 0;
 		 
 		 for(String value : Courses.coursesMap.values()) {
 			 if(value.equals("A")) {
@@ -76,11 +77,13 @@ public class Courses {
 			 else {
 				 gpa += 1.00;
 			 }
+			 count++;
 		 }
 		 
 		 
 		 
-		return String.format("%.2f", gpa);
+		 
+		return String.format("%.2f", (gpa/count));
 	}
 	
 	// calculate the number of semesters
